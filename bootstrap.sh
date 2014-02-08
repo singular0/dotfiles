@@ -44,6 +44,8 @@ install() {
 		should_install=$?
 		if [ $should_install -gt 0 ]; then
 			[ -d "$HOME/$file" ] && rm -rf "$HOME/$file"
+			[ -L "$file" ] && file=`readlink "$file"`
+			c_list $file
 			cp -Rf "$file" "$HOME/$file"
 		fi
 	done
