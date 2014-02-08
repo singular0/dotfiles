@@ -65,7 +65,7 @@ in_array() {
 
 backupdir="$HOME/.dotfiles-backup/$(date "+%Y%m%d%H%M.%S")"
 dependencies=(git vim)
-excluded=(. .. .git .gitignore .gitmodules bootstrap.sh Gemfile Gemfile.lock Rakefile README.md)
+excluded=(. .. .git .gitignore .gitmodules bootstrap.sh README.md)
 
 
 #-----------------------------------------------------------------------------
@@ -78,7 +78,7 @@ not_met=0
 for need in "${dependencies[@]}"; do
   dep $need
   met=$?
-  not_met=$(echo "$not_met + $met" | bc)
+  not_met=$((not_met + met))
 done
 
 if [ $not_met -gt 0 ]; then
