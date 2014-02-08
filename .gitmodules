@@ -1,3 +1,6 @@
 [submodule "modules/molokai"]
 	path = modules/molokai
 	url = https://github.com/tomasr/molokai.git
+[submodule "modules/vim-distinguished"]
+	path = modules/vim-distinguished
+	url = https://github.com/Lokaltog/vim-distinguished.git
