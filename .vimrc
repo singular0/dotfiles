@@ -20,6 +20,8 @@ set ruler
 set showmode
 " Always show status line
 set laststatus=2
+" Enable line numbers
+set number
 
 set autoindent
 set smartindent
@@ -34,4 +36,6 @@ augroup LAST
     \   exe "normal! g`\"" |
     \ endif
 augroup END
+
+colors molokai
 
