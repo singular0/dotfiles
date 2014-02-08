@@ -18,6 +18,8 @@ set incsearch
 set ruler
 " Show the current mode
 set showmode
+" Always show status line
+set laststatus=2
 
 set autoindent
 set smartindent
