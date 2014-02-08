@@ -22,6 +22,8 @@ export LC_MESSAGES="C"
 
 # Always enable colored `grep` output
 export GREP_OPTIONS="--color=auto"
+# Enable colored ls output
+alias ls="ls --color=auto"
 
 PS1='[\u@\h \W]\$ '
 

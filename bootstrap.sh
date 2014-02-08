@@ -64,8 +64,12 @@ in_array() {
 #-----------------------------------------------------------------------------
 
 backupdir="$HOME/.dotfiles-backup/$(date "+%Y%m%d%H%M.%S")"
-dependencies=(git vim)
 excluded=(. .. .git .gitignore .gitmodules modules bootstrap.sh README.md)
+if [ "`uname`" == "Darwin" ]; then
+	dependencies=(git vim brew)
+else
+	dependencies=(git vim)
+fi
 
 
 #-----------------------------------------------------------------------------
@@ -131,5 +135,3 @@ fi
 
 popd
 notice "Done"
-#exec $SHELL -l
-
