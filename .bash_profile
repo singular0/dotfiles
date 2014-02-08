@@ -7,9 +7,13 @@ export EDITOR="vim"
 # Larger bash history (allow 32³ entries; default is 500)
 export HISTSIZE=32768
 export HISTFILESIZE=$HISTSIZE
-export HISTCONTROL=ignoredups
+export HISTCONTROL="ignorespace:erasedups"
 # Make some commands not show up in history
 export HISTIGNORE="ls:cd:cd -:pwd:exit:* --help"
+# Allow use to re-edit a faild history substitution.
+shopt -s histreedit
+# History expansions will be verified before execution.
+shopt -s histverify
 
 # Prefer Russian locale UTF-8
 export LANG="en_US"

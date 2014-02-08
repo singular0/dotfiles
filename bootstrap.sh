@@ -44,9 +44,7 @@ install() {
 		should_install=$?
 		if [ $should_install -gt 0 ]; then
 			[ -d "$HOME/$file" ] && rm -rf "$HOME/$file"
-			[ -L "$file" ] && file=`readlink "$file"`
-			c_list $file
-			cp -Rf "$file" "$HOME/$file"
+			cp -RLf "$file" "$HOME/$file"
 		fi
 	done
 }
@@ -67,7 +65,7 @@ in_array() {
 
 backupdir="$HOME/.dotfiles-backup/$(date "+%Y%m%d%H%M.%S")"
 dependencies=(git vim)
-excluded=(. .. .git .gitignore .gitmodules bootstrap.sh README.md)
+excluded=(. .. .git .gitignore .gitmodules modules bootstrap.sh README.md)
 
 
 #-----------------------------------------------------------------------------
