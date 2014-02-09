@@ -1,4 +1,4 @@
-# Add `~/bin` to the `$PATH`
+# Add ~/bin to the PATH
 export PATH="$HOME/bin:$PATH"
 
 # Make vim the default editor
@@ -22,16 +22,21 @@ export LC_MESSAGES="C"
 
 # Always enable colored `grep` output
 export GREP_OPTIONS="--color=auto"
-# Enable colored ls output
-alias ls="ls --color=auto"
 
 PS1='[\u@\h \W]\$ '
 
 # Mac OS X specific settings
 if [ "`uname`" == "Darwin" ]; then
-	BREW_PREFIX="`brew --prefix`"
-	# Add brew `bin` to `$PATH`
-	export PATH="$BREW_PREFIX/bin"
+	BREW_PATH="`brew --prefix`"
+	# Prepend brew bin to PATH
+	export PATH="$BREW_PATH/bin:$PATH"
 	# Enable bash_completion
-	[ -f $BREW_PREFIX/etc/bash_completion ] && . $BREW_PREFIX/etc/bash_completion
+	[ -f $BREW_PATH/etc/bash_completion ] && . $BREW_PATH/etc/bash_completion
+	# Enable commandline coloring
+	export CLICOLOR=1
+	# Set ls colors close do Linux default
+	export LSCOLORS="ExGxBxDxCxEgEdxbxgxcxd"
+else
+	# Enable colored ls output
+	alias ls="ls --color=auto"
 fi
