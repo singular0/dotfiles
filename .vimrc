@@ -8,6 +8,9 @@ set gdefault
 set modeline
 " Enable syntax highlighting
 syntax on
+filetype on
+filetype plugin on
+filetype indent on
 " Highlight searches
 set hlsearch
 " Ignore case of searches
@@ -22,10 +25,15 @@ set showmode
 set laststatus=2
 " Enable line numbers
 set number
-
+" Copy indent from last line when starting new line
 set autoindent
-set smartindent
+" At start of line, <Tab> inserts shiftwidth spaces, <Bs> deletes shiftwidth spaces
 set smarttab
+set smartindent
+set backspace=indent,eol,start
+set visualbell
+set scrolloff=3
+set title
 
 nnoremap <F2> :set invpaste paste?<CR>
 set pastetoggle=<F2>
