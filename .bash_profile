@@ -15,9 +15,9 @@ shopt -s histreedit
 # History expansions will be verified before execution.
 shopt -s histverify
 
-# Prefer Russian locale UTF-8
-export LANG="en_US"
-export LC_ALL="en_US.UTF-8"
+# Russian locale, UTF-8 encoding
+export LANG="ru_RU.utf-8"
+# But POSIX messages, please
 export LC_MESSAGES="C"
 
 # Always enable colored `grep` output
