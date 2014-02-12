@@ -13,3 +13,6 @@
 [submodule "modules/vim-indent-guides"]
 	path = modules/vim-indent-guides
 	url = https://github.com/nathanaelkane/vim-indent-guides.git
+[submodule "modules/osx-terminal.app-colors-solarized"]
+	path = modules/osx-terminal.app-colors-solarized
+	url = https://github.com/tomislav/osx-terminal.app-colors-solarized.git
