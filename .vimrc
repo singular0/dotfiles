@@ -45,5 +45,6 @@ augroup LAST
     \ endif
 augroup END
 
-colors molokai
+set background=dark
+colorscheme solarized
 
