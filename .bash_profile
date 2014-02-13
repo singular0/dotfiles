@@ -36,7 +36,8 @@ if [ "`uname`" == "Darwin" ]; then
 	# Enable commandline coloring
 	export CLICOLOR=1
 	# Set ls colors close do Linux default
-	export LSCOLORS="ExGxBxDxCxEgEdxbxgxcxd"
+#	export LSCOLORS="ExGxBxDxCxEgEdxbxgxcxd"
+	export LSCOLORS="gxfxbEaEBxxEhEhBaDaCaD"
 else
 	# Enable colored ls output
 	alias ls="ls --color=auto"
