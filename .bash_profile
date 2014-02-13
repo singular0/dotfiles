@@ -23,7 +23,8 @@ export LC_MESSAGES="C"
 # Always enable colored `grep` output
 export GREP_OPTIONS="--color=auto"
 
-PS1='[\u@\h \W]\$ '
+#PS1='[\u@\h \W]\$ '
+PS1="[\[\e[36m\]\u\[\e[m\]@\[\e[32m\]\h\[\e[m\]:\[\e[33m\]\w\[\e[m\]]$ "
 
 # Mac OS X specific settings
 if [ "`uname`" == "Darwin" ]; then
