@@ -35,10 +35,12 @@ if [ "`uname`" == "Darwin" ]; then
 	[ -f $BREW_PATH/etc/bash_completion ] && . $BREW_PATH/etc/bash_completion
 	# Enable commandline coloring
 	export CLICOLOR=1
-	# Set ls colors close do Linux default
+	# Set ls colors
 #	export LSCOLORS="ExGxBxDxCxEgEdxbxgxcxd"
 	export LSCOLORS="gxfxbEaEBxxEhEhBaDaCaD"
 else
 	# Enable colored ls output
 	alias ls="ls --color=auto"
+	# Set ls colors
+	export LS_COLORS="rs=0:di=36:ln=35:so=44;31;01:pi=44;30;01:ex=31;01:bd=44;01:cd=44;37;01:su=41;01:sg=43;30;01:tw=42;30;01:ow=43;30;01:"
 fi
