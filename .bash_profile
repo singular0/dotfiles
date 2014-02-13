@@ -24,7 +24,7 @@ export LC_MESSAGES="C"
 export GREP_OPTIONS="--color=auto"
 
 #PS1='[\u@\h \W]\$ '
-PS1="[\[\e[36m\]\u\[\e[m\]@\[\e[32m\]\h\[\e[m\]:\[\e[33m\]\w\[\e[m\]]$ "
+PS1="[\[\e[33m\]\u\[\e[m\]@\[\e[32m\]\h\[\e[m\] \[\e[36m\]\w\[\e[m\]]$ "
 
 # Mac OS X specific settings
 if [ "`uname`" == "Darwin" ]; then
