@@ -27,6 +27,8 @@ set laststatus=2
 set number
 " Copy indent from last line when starting new line
 set autoindent
+" Make tabs as wide as two spaces
+set tabstop=2
 " At start of line, <Tab> inserts shiftwidth spaces, <Bs> deletes shiftwidth spaces
 set smarttab
 set smartindent
