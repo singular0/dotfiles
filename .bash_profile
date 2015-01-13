@@ -21,7 +21,7 @@ export LANG="ru_RU.utf-8"
 export LC_MESSAGES="C"
 
 # Always enable colored `grep` output
-export GREP_OPTIONS="--color=auto"
+alias grep="grep --color=auto"
 
 #PS1='[\u@\h \W]\$ '
 PS1="[\[\e[33m\]\u\[\e[m\]@\[\e[32m\]\h\[\e[m\] \[\e[36m\]\w\[\e[m\]]$ "
