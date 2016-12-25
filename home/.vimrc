@@ -1,5 +1,6 @@
 " Enable pathogen.vim first
 runtime bundle/vim-pathogen/autoload/pathogen.vim
+execute pathogen#infect()
 
 " Make Vim more useful
 set nocompatible
