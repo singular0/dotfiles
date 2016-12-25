@@ -4,12 +4,22 @@ My dotfiles for Arch Linux and Mac OS X.
 
 ## Installation
 
+First install Homesick (you will need ruby for that):
+
 ```
-bash -c "$(curl -L https://singular.ru/dotfiles)"
+gem install homesick
 ```
-Just in case my server is down there is a direct GitHub link:
+
+Then download dotfiles:
+
 ```
-bash -c "$(curl -L https://raw.github.com/singular0/dotfiles/master/bootstrap.sh)"
+homesick clone singular0/dotfiles
+```
+
+And finally symlink them to your home dir:
+
+```
+homesick symlink dotfiles
 ```
 
 ## Inspiration
