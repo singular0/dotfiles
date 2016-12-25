@@ -1,3 +1,6 @@
+" Enable pathogen.vim first
+runtime bundle/vim-pathogen/autoload/pathogen.vim
+
 " Make Vim more useful
 set nocompatible
 " Enhance command-line completion
@@ -49,4 +52,3 @@ augroup END
 
 set background=dark
 colorscheme solarized
-

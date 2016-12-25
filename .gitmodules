@@ -10,3 +10,18 @@
 [submodule "modules/osx-terminal.app-colors-solarized"]
 	path = modules/osx-terminal.app-colors-solarized
 	url = https://github.com/tomislav/osx-terminal.app-colors-solarized.git
+[submodule "home/.vim/bundle"]
+	path = home/.vim/bundle
+	url = https://github.com/tomasr/molokai.git
+[submodule "home/.vim/bundle/molokai"]
+	path = home/.vim/bundle/molokai
+	url = https://github.com/tomasr/molokai.git
+[submodule "home/.vim/bundle/vim-colors-solarized"]
+	path = home/.vim/bundle/vim-colors-solarized
+	url = https://github.com/altercation/vim-colors-solarized.git
+[submodule "home/.vim/bundle/vim-distinguished"]
+	path = home/.vim/bundle/vim-distinguished
+	url = https://github.com/Lokaltog/vim-distinguished.git
+[submodule "home/.vim/bundle/vim-pathogen"]
+	path = home/.vim/bundle/vim-pathogen
+	url = https://github.com/tpope/vim-pathogen.git
