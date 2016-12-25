@@ -4,7 +4,7 @@ My dotfiles for Arch Linux and Mac OS X.
 
 ## Installation
 
-First install Homesick (you will need ruby for that):
+First install [Homesick](https://github.com/technicalpickles/homesick) (you will also need Ruby for that):
 
 ```
 gem install homesick
