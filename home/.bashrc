@@ -1,13 +1,15 @@
 # Add ~/bin to the PATH
 export PATH="$HOME/bin:$PATH"
-# Add user installed Ruby Gem binaries to the PATH
-if which ruby >/dev/null && which gem >/dev/null; then
-  export PATH="$(ruby -rubygems -e 'puts Gem.user_dir')/bin:$PATH"
-fi
 
-# Init rbenv environment if installed
-if which rbenv >/dev/null; then
-  eval "$(rbenv init -)"
+# Setup Ruby environment
+if command -v ruby >/dev/null 2>&1; then
+  if command -v rbenv >/dev/null 2>&1; then
+    # Init rbenv if installed
+    eval "$(rbenv init -)"
+  elif command -v gem >/dev/null 2>&1; then
+    # Add user gems binaries to the PATH
+    export PATH="$(ruby -rubygems -e 'puts Gem.user_dir')/bin:$PATH"
+  fi
 fi
 
 # Make vim the default editor
