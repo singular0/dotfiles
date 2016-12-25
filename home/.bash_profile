@@ -34,22 +34,23 @@ export LC_MESSAGES="C"
 # Always enable colored `grep` output
 alias grep="grep --color=auto"
 
+# [user@host ~]$
 PS1="[\[\e[33m\]\u\[\e[m\]@\[\e[32m\]\h\[\e[m\] \[\e[36m\]\w\[\e[m\]]$ "
 
 # Mac OS X specific settings
 if [ "`uname`" == "Darwin" ]; then
-	BREW_PATH="`brew --prefix`"
-	# Prepend brew bin to PATH
-	export PATH="$BREW_PATH/bin:$PATH"
-	# Enable bash_completion
-	[ -f $BREW_PATH/etc/bash_completion ] && . $BREW_PATH/etc/bash_completion
-	# Enable commandline coloring
-	export CLICOLOR=1
-	# Set ls colors
-	export LSCOLORS="gxfxbEaEBxxEhEhBaDaCaD"
+  BREW_PATH="`brew --prefix`"
+  # Prepend brew bin to PATH
+  export PATH="$BREW_PATH/bin:$PATH"
+  # Enable bash_completion
+  [ -f $BREW_PATH/etc/bash_completion ] && . $BREW_PATH/etc/bash_completion
+  # Enable commandline coloring
+  export CLICOLOR=1
+  # Set ls colors
+  export LSCOLORS="gxfxbEaEBxxEhEhBaDaCaD"
 else
-	# Enable colored ls output
-	alias ls="ls --color=auto"
-	# Set ls colors
-	export LS_COLORS="rs=0:di=36:ln=35:so=44;31;01:pi=44;30;01:ex=31;01:bd=44;01:cd=44;37;01:su=41;01:sg=43;30;01:tw=42;30;01:ow=43;30;01:"
+  # Enable colored ls output
+  alias ls="ls --color=auto"
+  # Set ls colors
+  export LS_COLORS="rs=0:di=36:ln=35:so=44;31;01:pi=44;30;01:ex=31;01:bd=44;01:cd=44;37;01:su=41;01:sg=43;30;01:tw=42;30;01:ow=43;30;01:"
 fi
