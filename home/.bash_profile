@@ -1,5 +1,9 @@
 # Add ~/bin to the PATH
 export PATH="$HOME/bin:$PATH"
+# Add user installed Ruby Gem binaries to the PATH
+if which ruby >/dev/null && which gem >/dev/null; then
+  export PATH="$(ruby -rubygems -e 'puts Gem.user_dir')/bin:$PATH"
+fi
 
 # Make vim the default editor
 export EDITOR="vim"
@@ -23,7 +27,6 @@ export LC_MESSAGES="C"
 # Always enable colored `grep` output
 alias grep="grep --color=auto"
 
-#PS1='[\u@\h \W]\$ '
 PS1="[\[\e[33m\]\u\[\e[m\]@\[\e[32m\]\h\[\e[m\] \[\e[36m\]\w\[\e[m\]]$ "
 
 # Mac OS X specific settings
@@ -36,7 +39,6 @@ if [ "`uname`" == "Darwin" ]; then
 	# Enable commandline coloring
 	export CLICOLOR=1
 	# Set ls colors
-#	export LSCOLORS="ExGxBxDxCxEgEdxbxgxcxd"
 	export LSCOLORS="gxfxbEaEBxxEhEhBaDaCaD"
 else
 	# Enable colored ls output
