@@ -53,3 +53,6 @@ augroup END
 
 set background=dark
 colorscheme solarized
+let g:solarized_termcolors=256
+let g:solarized_contrast="high"
+
