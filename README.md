@@ -7,19 +7,19 @@ My dotfiles for Arch Linux and Mac OS X.
 First install [Homesick](https://github.com/technicalpickles/homesick) (you will also need Ruby for that):
 
 ```
-gem install homesick
+gem install --user-install homesick
 ```
 
 Then download dotfiles:
 
 ```
-homesick clone singular0/dotfiles
+$(ruby -rubygems -e 'puts Gem.user_dir')/bin/homesick clone singular0/dotfiles
 ```
 
 And finally symlink them to your home dir:
 
 ```
-homesick symlink dotfiles
+$(ruby -rubygems -e 'puts Gem.user_dir')/bin/homesick symlink dotfiles
 ```
 
 ## Inspiration
