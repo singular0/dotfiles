@@ -11,6 +11,11 @@ if command -v rbenv >/dev/null 2>&1; then
   eval "$(rbenv init -)"
 fi
 
+# Init Docker Machine if installed
+if command -v docker-machine >/dev/null 2>&1; then
+  eval "$(docker-machine env)"
+fi
+
 # Make vim the default editor
 export EDITOR="vim"
 
@@ -47,6 +52,11 @@ if [ "`uname`" == "Darwin" ]; then
   export CLICOLOR=1
   # Set ls colors
   export LSCOLORS="gxfxbEaEBxxEhEhBaDaCaD"
+  # Configure homeshick
+  if command -v homeshick >/dev/null 2>&1; then
+    export HOMESHICK_DIR=$BREW_PATH/opt/homeshick
+    source "$HOMESHICK_DIR/homeshick.sh"
+  fi
 else
   # Enable colored ls output
   alias ls="ls --color=auto"
