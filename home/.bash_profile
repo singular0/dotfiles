@@ -3,7 +3,7 @@ export PATH="$HOME/bin:$PATH"
 
 # Add user gems binaries to the PATH
 if command -v ruby >/dev/null 2>&1 && command -v gem >/dev/null 2>&1; then
-  export PATH="$(ruby -rubygems -e 'puts Gem.user_dir')/bin:$PATH"
+  export PATH="$(ruby -e 'puts Gem.user_dir')/bin:$PATH"
 fi
 
 # Init rbenv if installed
