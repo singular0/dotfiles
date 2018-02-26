@@ -13,7 +13,9 @@ fi
 
 # Init Docker Machine if installed
 if command -v docker-machine >/dev/null 2>&1; then
-  eval "$(docker-machine env)"
+  if [ "$(docker-machine status)" == "Running" ]; then
+    eval "$(docker-machine env)"
+  fi
 fi
 
 # Make vim the default editor
