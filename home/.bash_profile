@@ -11,13 +11,6 @@ if command -v rbenv >/dev/null 2>&1; then
   eval "$(rbenv init -)"
 fi
 
-# Init Docker Machine if installed
-if command -v docker-machine >/dev/null 2>&1; then
-  if [ "$(docker-machine status)" == "Running" ]; then
-    eval "$(docker-machine env)"
-  fi
-fi
-
 # Make vim the default editor
 export EDITOR="vim"
 
@@ -65,3 +58,4 @@ else
   # Set ls colors
   export LS_COLORS="rs=0:di=36:ln=35:so=44;31;01:pi=44;30;01:ex=31;01:bd=44;01:cd=44;37;01:su=41;01:sg=43;30;01:tw=42;30;01:ow=43;30;01:"
 fi
+
