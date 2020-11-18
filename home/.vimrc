@@ -1,6 +1,7 @@
-" Enable pathogen.vim first
-runtime bundle/vim-pathogen/autoload/pathogen.vim
-execute pathogen#infect()
+" vim-plug plugins
+call plug#begin()
+Plug 'fxn/vim-monochrome'
+call plug#end()
 
 " Make Vim more useful
 set nocompatible
@@ -52,7 +53,5 @@ augroup LAST
 augroup END
 
 set background=dark
-colorscheme solarized
-let g:solarized_termcolors=256
-let g:solarized_contrast="high"
+colorscheme monochrome
 
