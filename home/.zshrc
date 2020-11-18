@@ -2,11 +2,12 @@
 if [[ "`uname`" == "Darwin" ]]; then
   # Homebrew specific settings
   if type brew &>/dev/null; then
-    PATH_PREFIX=$(brew --prefix)
-    export PATH=$PATH_PREFIX/bin:$PATH
+    BREW_PREFIX=`brew --prefix`
+    ZSH_PLUGINS=$BREW_PREFIX/share
+    export PATH=$BREW_PREFIX/bin:$PATH
   fi
 else
-  PATH_PREFIX=/usr
+  ZSH_PLUGINS=/usr/share/zsh/plugins
 fi
 
 # Path to your oh-my-zsh installation.
@@ -82,11 +83,11 @@ plugins=(
 )
 
 # Init adhoc zsh plugins
-FPATH=$PATH_PREFIX/share/zsh-completions:$FPATH
+FPATH=$ZSH_PLUGINS/zsh-completions:$FPATH
 autoload -Uz compinit && compinit
 
-source $PATH_PREFIX/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-source $PATH_PREFIX/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source $ZSH_PLUGINS/zsh-autosuggestions/zsh-autosuggestions.zsh
+source $ZSH_PLUGINS/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 source $ZSH/oh-my-zsh.sh
 
