@@ -80,6 +80,7 @@ DISABLE_UPDATE_PROMPT="true"
 plugins=(
 	git
 	osx
+	pyenv
 )
 
 # Init adhoc zsh plugins
@@ -104,6 +105,8 @@ source $ZSH/oh-my-zsh.sh
 # else
 #   export EDITOR='mvim'
 # fi
+
+SUDO_EDITOR=vim
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
