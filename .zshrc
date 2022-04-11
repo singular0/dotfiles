@@ -83,7 +83,7 @@ if [[ "`uname`" == "Darwin" ]]; then
   if type brew &>/dev/null; then
     BREW_PREFIX=`brew --prefix`
     ZSH_PLUGINS=$BREW_PREFIX/share
-    export PATH=$BREW_PREFIX/bin:$PATH
+    export PATH=$BREW_PREFIX/bin:$BREW_PREFIX/sbin:$PATH
   fi
 	PATH=$PATH:~/Library/Python/3.8/bin
 	plugins+=(macos)
