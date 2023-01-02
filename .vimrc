@@ -13,49 +13,85 @@ silent! if plug#begin()
   call plug#end()
 endif
 
-" Make Vim more useful
-set nocompatible
-" Enhance command-line completion
-set wildmenu
-" Add the g flag to search/replace by default
-set gdefault
-" Respect modeline in files
-set modeline
+" Enable file type detection
+filetype on
+" Enable loading the plugin files
+filetype plugin on
+
 " Enable syntax highlighting
 syntax on
-filetype on
-filetype plugin on
-filetype indent on
+
 " Highlight searches
 set hlsearch
 " Ignore case of searches
 set ignorecase
+" Automatically switch search to case-sensitive when search query contains an uppercase letter
+set smartcase
 " Highlight dynamically as pattern is typed
 set incsearch
-" Show the cursor position
-set ruler
-" Show the current mode
-set showmode
-" Always show status line
-set laststatus=2
-" Enable line numbers
-set number
-" Copy indent from last line when starting new line
-set autoindent
+" Add the g flag to search/replace by default
+set gdefault
+
+" Enable indentation rules that are file-type specific
+filetype indent on
+" Automatically insert extra level of indentation
+set smartindent
+" Convert tabs to spaces
+set expandtab
 " Make tabs as wide as two spaces
 set tabstop=2
 " At start of line, <Tab> inserts shiftwidth spaces, <Bs> deletes shiftwidth spaces
 set smarttab
-set smartindent
-set backspace=indent,eol,start
-set visualbell
-set scrolloff=3
+" When shifting lines, round the indentation to the nearest multiple of “shiftwidth”
+set shiftround
+" When shifting, indent using four spaces
+set shiftwidth=2
+
+" Display command line’s tab complete options as a menu
+set wildmenu
+" Set the window’s title, reflecting the file currently being edited.
 set title
-
-nnoremap <F2> :set invpaste paste?<CR>
-set pastetoggle=<F2>
-
-" set background=dark
+" Show the cursor position
+set ruler
+" Highlight the line currently under cursor
+set cursorline
+" Enable line numbers
+set number
+" Flash the screen instead of beeping on errors
+set visualbell
+" Use colors that suit a dark background
+set background=dark
+" Change color scheme
 colorscheme minimalist
-let g:airline_theme='minimalist'
+" The number of screen lines to keep above and below the cursor
+set scrolloff=3
+" Always show status line
+set laststatus=2
+
+" Automatically re-read files if unmodified inside Vim
+set autoread
+" Allow backspacing over indention, line breaks and insertion start
+set backspace=indent,eol,start
+" Delete comment characters when joining lines
+set formatoptions+=j
+" Make Vim more useful
+set nocompatible
+" Respect modeline in files
+set modeline
+" Show the current mode
+set showmode
+
+" Automatically set paste mode in Vim when pasting in insert mode
+" https://coderwall.com/p/if9mda/automatically-set-paste-mode-in-vim-when-pasting-in-insert-mode
+
+let &t_SI .= "\<Esc>[?2004h"
+let &t_EI .= "\<Esc>[?2004l"
+
+inoremap <special> <expr> <Esc>[200~ XTermPasteBegin()
+
+function! XTermPasteBegin()
+  set pastetoggle=<Esc>[201~
+  set paste
+  return ""
+endfunction
 
