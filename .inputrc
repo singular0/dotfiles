@@ -1,8 +1,13 @@
+# cursor up
 "\e[A": history-search-backward
+
+# cursor down
 "\e[B": history-search-forward
 
 TAB: menu-complete
 
+set colored-stats on
 set show-all-if-ambiguous on
+set show-all-if-unmodified on
 set menu-complete-display-prefix on
 
