@@ -10,6 +10,8 @@ silent! if plug#begin()
   Plug 'farmergreg/vim-lastplace'
   Plug 'vim-airline/vim-airline'
   Plug 'vim-airline/vim-airline-themes'
+  Plug 'airblade/vim-gitgutter'
+  Plug 'jiangmiao/auto-pairs'
   call plug#end()
 endif
 
@@ -56,8 +58,8 @@ set showmode                    " Show the current mode
 " Automatically set paste mode in Vim when pasting in insert mode
 " https://coderwall.com/p/if9mda/automatically-set-paste-mode-in-vim-when-pasting-in-insert-mode
 
-let &t_SI .= "\<Esc>[?2004h"
-let &t_EI .= "\<Esc>[?2004l"
+let &t_SI.="\<Esc>[?2004h"
+let &t_EI.="\<Esc>[?2004l"
 
 inoremap <special> <expr> <Esc>[200~ XTermPasteBegin()
 
@@ -66,4 +68,15 @@ function! XTermPasteBegin()
   set paste
   return ""
 endfunction
+
+" auto-pairs
+let g:AutoPairsFlyMode=1
+
+" vim-gitgutter
+let g:gitgutter_enabled=1
+set updatetime=400
+let g:gitgutter_set_sign_backgrounds=1
+highlight GitGutterAdd guifg=#009900 ctermfg=2
+highlight GitGutterChange guifg=#bbbb00 ctermfg=3
+highlight GitGutterDelete guifg=#ff2222 ctermfg=1
 
