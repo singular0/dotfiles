@@ -6,7 +6,10 @@ endif
 
 " vim-plug plugins
 silent! if plug#begin()
-  Plug 'fxn/vim-monochrome'
+	Plug 'dikiaap/minimalist'
+	Plug 'farmergreg/vim-lastplace'
+	Plug 'vim-airline/vim-airline'
+	Plug 'vim-airline/vim-airline-themes'
   call plug#end()
 endif
 
@@ -52,13 +55,7 @@ set title
 nnoremap <F2> :set invpaste paste?<CR>
 set pastetoggle=<F2>
 
-augroup LAST
-  au BufReadPost *
-    \ if line("'\"") > 1 && line("'\"") <= line("$") |
-    \   exe "normal! g`\"" |
-    \ endif
-augroup END
-
-set background=dark
-colorscheme monochrome
+" set background=dark
+colorscheme minimalist
+let g:airline_theme='minimalist'
 

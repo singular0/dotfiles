@@ -96,7 +96,9 @@ FPATH=$ZSH_PLUGINS/zsh-completions:$FPATH
 autoload -Uz compinit && compinit
 
 source $ZSH_PLUGINS/zsh-autosuggestions/zsh-autosuggestions.zsh
+
 source $ZSH_PLUGINS/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+export ZSH_HIGHLIGHT_HIGHLIGHTERS_DIR=$ZSH_PLUGINS/zsh-syntax-highlighting/highlighters
 
 source $ZSH/oh-my-zsh.sh
 
