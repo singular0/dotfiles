@@ -54,6 +54,7 @@ set formatoptions+=j            " Delete comment characters when joining lines
 set nocompatible                " Make Vim more useful
 set modeline                    " Respect modeline in files
 set showmode                    " Show the current mode
+set nowrap                      " Disable line wrapping
 
 " Automatically set paste mode in Vim when pasting in insert mode
 " https://coderwall.com/p/if9mda/automatically-set-paste-mode-in-vim-when-pasting-in-insert-mode
@@ -75,8 +76,7 @@ let g:AutoPairsFlyMode=1
 " vim-gitgutter
 let g:gitgutter_enabled=1
 set updatetime=400
-let g:gitgutter_set_sign_backgrounds=1
-highlight GitGutterAdd guifg=#009900 ctermfg=2
-highlight GitGutterChange guifg=#bbbb00 ctermfg=3
-highlight GitGutterDelete guifg=#ff2222 ctermfg=1
+highlight GitGutterAdd guifg=#AFD787 ctermfg=2
+highlight GitGutterChange guifg=#D7875F ctermfg=3
+highlight GitGutterDelete guifg=#AF87D7 ctermfg=1
 
