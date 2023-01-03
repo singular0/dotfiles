@@ -11,6 +11,7 @@ silent! if plug#begin()
   Plug 'airblade/vim-gitgutter'
   Plug 'farmergreg/vim-lastplace'
   Plug 'jiangmiao/auto-pairs'
+  Plug 'ervandew/supertab'
   Plug 'dikiaap/minimalist'
   Plug 'vim-airline/vim-airline'
   Plug 'vim-airline/vim-airline-themes'
