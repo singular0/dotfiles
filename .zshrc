@@ -66,39 +66,41 @@ DISABLE_UPDATE_PROMPT="true"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-	git
+  git
 )
 
-# pyenv specific settings
-if command -v pyenv >/dev/null 2>&1; then
-  export PYENV_ROOT="$HOME/.pyenv"
-  export PATH="$PYENV_ROOT/bin:$PATH"
-  eval "$(pyenv init --path)"
-	plugins+=(pyenv)
-fi
-
-# macOS specific settings
+# macOS
 if [[ "`uname`" == "Darwin" ]]; then
-  # Homebrew specific settings
-  if type brew &>/dev/null; then
-    BREW_PREFIX=`brew --prefix`
+  if [[ "$BREW_PREFIX" != "" ]]; then
     ZSH_PLUGINS=$BREW_PREFIX/share
-    export PATH=$BREW_PREFIX/bin:$BREW_PREFIX/sbin:$PATH
   fi
-	PATH=$PATH:~/Library/Python/3.8/bin
-	plugins+=(macos)
+  plugins+=(macos)
 else
   ZSH_PLUGINS=/usr/share/zsh/plugins
 fi
 
+# PyEnv
+if command -v pyenv >/dev/null 2>&1; then
+  plugins+=(pyenv)
+fi
+
 # Init adhoc zsh plugins
-FPATH=$ZSH_PLUGINS/zsh-completions:$FPATH
-autoload -Uz compinit && compinit
-
-source $ZSH_PLUGINS/zsh-autosuggestions/zsh-autosuggestions.zsh
-
-source $ZSH_PLUGINS/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-export ZSH_HIGHLIGHT_HIGHLIGHTERS_DIR=$ZSH_PLUGINS/zsh-syntax-highlighting/highlighters
+if [[ -d "$ZSH_PLUGINS" ]]; then
+  # zsh-completions
+  if [[ -d "$ZSH_PLUGINS/zsh-completions" ]]; then
+    FPATH=$ZSH_PLUGINS/zsh-completions:$FPATH
+    autoload -Uz compinit && compinit
+  fi
+  # zsh-autosuggestions
+  if [[ -d "$ZSH_PLUGINS/zsh-autosuggestions" ]]; then
+    source $ZSH_PLUGINS/zsh-autosuggestions/zsh-autosuggestions.zsh
+  fi
+  # zsh-syntax-highlighting
+  if [[ -d "$ZSH_PLUGINS/zsh-syntax-highlighting" ]]; then
+    source $ZSH_PLUGINS/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+    export ZSH_HIGHLIGHT_HIGHLIGHTERS_DIR=$ZSH_PLUGINS/zsh-syntax-highlighting/highlighters
+  fi
+fi
 
 source $ZSH/oh-my-zsh.sh
 
