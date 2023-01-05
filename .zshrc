@@ -106,10 +106,19 @@ source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
+# ls colors for Linux and Darwin
+# https://geoff.greer.fm/lscolors/
+export LSCOLORS=exfxcxdxbxegedabagacad
+export LS_COLORS="di=34:ln=35:so=32:pi=33:ex=31:bd=34;46:cd=34;43:su=30;41:sg=30;46:tw=30;42:ow=30;43"
+
+# Completion menu colors
+# http://linuxshellaccount.blogspot.com/2008/12/color-completion-using-zsh-modules-on.html
+zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
+
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
-# export LANG=en_US.UTF-8
+export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
 # if [[ -n $SSH_CONNECTION ]]; then
