@@ -5,6 +5,14 @@ if command -v pyenv &>/dev/null; then
   eval "$(pyenv init --path)"
 fi
 
+# RustUp
+if [ -d $HOME/.cargo/bin ]; then
+  export PATH=$HOME/.cargo/bin:$PATH
+fi
+if [ -f $HOME/.cargo/env ]; then
+  source $HOME/.cargo/env
+fi
+
 # macOS Homebrew
 if command -v brew &>/dev/null; then
   BREW_PREFIX=`brew --prefix`
