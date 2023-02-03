@@ -13,6 +13,8 @@ silent! if plug#begin()
   Plug 'jiangmiao/auto-pairs'                     " Add/remove quates, parens, brackets
   Plug 'ervandew/supertab'                        " Code alignment
   Plug 'dikiaap/minimalist'                       " Color scheme
+  Plug 'scrooloose/nerdtree'                      " File tree
+  Plug 'Xuyuanp/nerdtree-git-plugin'              " Tree git status
   Plug 'vim-airline/vim-airline'                  " Status line
   Plug 'vim-airline/vim-airline-themes'           " Status line themes
   Plug 'neoclide/coc.nvim', {'branch': 'release'} " Code completion and linting
@@ -49,6 +51,7 @@ colorscheme minimalist  " Change color scheme
 
 set nocompatible        " Make Vim more useful
 set modeline            " Respect modeline in files
+set encoding=utf-8      " Set UTF-8 as default encoding
 
 " Automatically set paste mode in Vim when pasting in insert mode
 " https://coderwall.com/p/if9mda/automatically-set-paste-mode-in-vim-when-pasting-in-insert-mode
@@ -63,15 +66,35 @@ function! XTermPasteBegin()
   return ""
 endfunction
 
-" vim-gitgutter
+" vim-gitgutter configuration
 let g:gitgutter_enabled=1
+
 highlight GitGutterAdd guifg=#AFD787 ctermfg=2
 highlight GitGutterChange guifg=#D7875F ctermfg=3
 highlight GitGutterDelete guifg=#AF87D7 ctermfg=1
 
 " Make <CR> to accept selected completion item or notify coc.nvim to format
 " <C-g>u breaks current undo, please make your own choice.
-inoremap <silent><expr> <CR> coc#pum#visible()
-  \? coc#pum#confirm()
-  \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+inoremap <silent><expr> <CR>
+  \ coc#pum#visible()
+  \ ? coc#pum#confirm()
+  \ : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+
+" nerdtree configuration
+let NERDTreeMinimalUI=1
+let g:NERDTreeGitStatusConcealBrackets=1
+
+" Disable signcolumn for NERDTree window
+autocmd FileType nerdtree setlocal signcolumn=no
+
+nnoremap <leader>n :NERDTreeFocus<CR>
+nnoremap <C-n> :NERDTree<CR>
+nnoremap <C-t> :NERDTreeToggle<CR>
+nnoremap <C-f> :NERDTreeFind<CR>
+
+" Close NERDTree if it the only remaining window
+autocmd bufenter *
+  \ if (winnr("$") == 1 && exists("b:NERDTree"))
+  \ | quit
+  \ | endif
 
