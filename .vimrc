@@ -11,6 +11,7 @@ silent! if plug#begin()
   Plug 'airblade/vim-gitgutter'                   " Git diff in sign column
   Plug 'farmergreg/vim-lastplace'                 " Remember last cursot position in files
   Plug 'jiangmiao/auto-pairs'                     " Add/remove quates, parens, brackets
+  Plug 'sheerun/vim-polyglot'                     " Syntax highlighting and indenting
   Plug 'ervandew/supertab'                        " Code alignment
   Plug 'dikiaap/minimalist'                       " Color scheme
   Plug 'scrooloose/nerdtree'                      " File tree
@@ -82,6 +83,7 @@ inoremap <silent><expr> <CR>
 
 " nerdtree configuration
 let NERDTreeMinimalUI=1
+let NERDTreeShowHidden=1
 let g:NERDTreeGitStatusConcealBrackets=1
 
 " Disable signcolumn for NERDTree window
