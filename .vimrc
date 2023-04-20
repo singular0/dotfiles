@@ -14,7 +14,7 @@ silent! if plug#begin()
   Plug 'sheerun/vim-polyglot'                     " Syntax highlighting and indenting
   Plug 'ervandew/supertab'                        " Code alignment
   Plug 'dikiaap/minimalist'                       " Color scheme
-  Plug 'scrooloose/nerdtree'                      " File tree
+  Plug 'preservim/nerdtree'                       " File tree
   Plug 'Xuyuanp/nerdtree-git-plugin'              " Tree git status
   Plug 'vim-airline/vim-airline'                  " Status line
   Plug 'vim-airline/vim-airline-themes'           " Status line themes
@@ -85,6 +85,10 @@ inoremap <silent><expr> <CR>
 let NERDTreeMinimalUI=1
 let NERDTreeShowHidden=1
 let g:NERDTreeGitStatusConcealBrackets=1
+let NERDTreeIgnore=["\.git"]
+let NERDTreeHighlightCursorline=1
+let NERDTreeDirArrowCollapsible="-"
+let NERDTreeDirArrowExpandable="+"
 
 " Disable signcolumn for NERDTree window
 autocmd FileType nerdtree setlocal signcolumn=no
@@ -95,7 +99,7 @@ nnoremap <C-t> :NERDTreeToggle<CR>
 nnoremap <C-f> :NERDTreeFind<CR>
 
 " Close NERDTree if it the only remaining window
-autocmd bufenter *
+autocmd BufEnter *
   \ if (winnr("$") == 1 && exists("b:NERDTree"))
   \ | quit
   \ | endif
