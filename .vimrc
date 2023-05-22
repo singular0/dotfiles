@@ -84,11 +84,9 @@ inoremap <silent><expr> <CR>
 " nerdtree configuration
 let NERDTreeMinimalUI=1
 let NERDTreeShowHidden=1
-let g:NERDTreeGitStatusConcealBrackets=1
-let NERDTreeIgnore=["\.git"]
+let NERDTreeIgnore=["\.git$"]
 let NERDTreeHighlightCursorline=1
-let NERDTreeDirArrowCollapsible="-"
-let NERDTreeDirArrowExpandable="+"
+let g:NERDTreeGitStatusConcealBrackets=1
 
 " Disable signcolumn for NERDTree window
 autocmd FileType nerdtree setlocal signcolumn=no
@@ -103,4 +101,8 @@ autocmd BufEnter *
   \ if (winnr("$") == 1 && exists("b:NERDTree"))
   \ | quit
   \ | endif
+
+" Refresh NERDTree on focus change
+autocmd BufEnter NERD_tree_*
+  \ | execute 'normal R'
 
