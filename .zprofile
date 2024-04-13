@@ -5,6 +5,11 @@ if command -v pyenv &>/dev/null; then
   eval "$(pyenv init --path)"
 fi
 
+# Go
+if command -v go &>/dev/null; then
+  export PATH="$HOME/go/bin:$PATH"
+fi
+
 # RustUp
 if [ -d $HOME/.cargo/bin ]; then
   export PATH=$HOME/.cargo/bin:$PATH
