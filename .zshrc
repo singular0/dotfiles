@@ -69,6 +69,11 @@ plugins=(
   git
 )
 
+# fzf
+if command -v fzf &>/dev/null; then
+  plugins+=(fzf)
+fi
+
 # macOS
 if [[ "`uname`" == "Darwin" ]]; then
   if [[ "$BREW_PREFIX" != "" ]]; then
