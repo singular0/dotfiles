@@ -8,7 +8,7 @@ return {
     },
     event = "VeryLazy",
     opts = function(_, opts)
-      opts.api_key_cmd = vim.fn.has("macunix")
+      opts.api_key_cmd = vim.fn.has("macunix") == 1
         and "security find-generic-password -l openai_api_key -w"
         or  "pass show openai_api_key"
       opts.openai_params = {
