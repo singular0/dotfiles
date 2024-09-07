@@ -24,3 +24,11 @@ if command -v brew &>/dev/null; then
   export PATH=$BREW_PREFIX/bin:$BREW_PREFIX/sbin:$PATH
 fi
 
+if [[ "`uname`" == "Darwin" ]]; then
+  export ANTHROPIC_API_KEY=`security find-generic-password -l anthropic_api_key -w`
+  export OPENAI_API_KEY=`security find-generic-password -l openai_api_key -w`
+else
+  export ANTHROPIC_API_KEY=`pass show anthropic_api_key`
+  export OPENAI_API_KEY=`pass show openai_api_key`
+fi
+
