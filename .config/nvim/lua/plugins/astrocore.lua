@@ -8,6 +8,20 @@ return {
   "AstroNvim/astrocore",
   ---@type AstroCoreOpts
   opts = {
+    rooter = {
+      detector = {
+        "lsp",
+        { ".git" },
+        { "Dockerfile", "Makefile", "package.json" }
+      },
+      ignore = {
+        servers = {},
+        dirs = {},
+      },
+      autochdir = true,
+      scope = "global",
+      notify = true,
+    },
     -- Configure core features of AstroNvim
     features = {
       large_buf = { size = 1024 * 500, lines = 10000 }, -- set global limits for large files for disabling features like treesitter
