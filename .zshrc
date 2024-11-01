@@ -89,6 +89,11 @@ if [[ "$PYENV_ROOT" != "" ]]; then
   plugins+=(pyenv)
 fi
 
+# GitHub
+if command -v gh &>/dev/null; then
+  plugins+=(gh)
+fi
+
 # Init adhoc zsh plugins
 if [[ -d "$ZSH_PLUGINS" ]]; then
   # zsh-completions
