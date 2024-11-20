@@ -1,0 +1,94 @@
+set $mod Mod1
+
+font pango:DejaVuSansM NerdFont 11
+
+floating_modifier $mod
+
+bindsym $mod+Return exec i3-sensible-terminal
+
+bindsym $mod+d exec --no-startup-id rofi -show run
+
+bindsym $mod+Shift+q kill
+
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+
+bindsym $mod+h split h
+bindsym $mod+v split v
+bindsym $mod+q split toggle
+
+bindsym $mod+e layout toggle split
+
+bindsym $mod+f fullscreen toggle
+
+bindsym $mod+Shift+space floating toggle
+
+bindsym $mod+space focus mode_toggle
+
+bindsym $mod+Ctrl+Right workspace next
+bindsym $mod+Ctrl+Left workspace prev
+
+bindsym $mod+1 workspace 1:I
+bindsym $mod+2 workspace 2:II
+bindsym $mod+3 workspace 3:III
+bindsym $mod+4 workspace 4:IV
+bindsym $mod+5 workspace 5:V
+bindsym $mod+6 workspace 6:VI
+
+bindsym $mod+Ctrl+1 move container to workspace 1:I
+bindsym $mod+Ctrl+2 move container to workspace 2:II
+bindsym $mod+Ctrl+3 move container to workspace 3:III
+bindsym $mod+Ctrl+4 move container to workspace 4:IV
+bindsym $mod+Ctrl+5 move container to workspace 5:V
+bindsym $mod+Ctrl+6 move container to workspace 6:VI
+
+bindsym $mod+Shift+r restart
+
+bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'Really exit?' -b 'Yes' 'i3-msg exit'"
+
+bindsym $mod+r mode "resize"
+
+mode "resize" {
+    bindsym Left resize shrink width 5 px or 5 ppt
+    bindsym Down resize grow height 5 px or 5 ppt
+    bindsym Up resize shrink height 5 px or 5 ppt
+    bindsym Right resize grow width 5 px or 5 ppt
+    bindsym Return mode "default"
+}
+
+bar {
+    status_command i3blocks
+    position top
+    workspace_min_width 24
+    padding 2px 8px 2px 8px
+    strip_workspace_numbers yes
+
+    colors {
+        background #141c21
+        statusline #141c21
+        separator #141c21
+        focused_workspace #141c21 #d12f2c #93a1a1
+        active_workspace #141c21 #141c21 #93a1a1
+        inactive_workspace #141c21 #141c21 #93a1a1
+        urgent_workspace #141c21 #b08500 #93a1a1
+    }
+}
+
+client.focused #d12f2c #263640 #93a1a1 #696ebf #2587cc1
+client.focused_inactive #263640 #b08500 #93a1a1 #263640 #263640
+client.unfocused #263640 #b08500 #93a1a1 #263640 #263640
+client.urgent #263640 #b08500 #93a1a1 #263640 #263640
+client.placeholder #263640 #b08500 #93a1a1 #263640 #263640
+client.background #263640
+
+for_window [class=".*"] border pixel 2
+hide_edge_borders smart
+gaps inner 8
+smart_gaps on

@@ -1,0 +1,24 @@
+[cpu]
+command=mpstat 1 1 | awk '/Average:/ {printf("%s\n", $(NF-9))}' | awk '{ printf("  %6s% \n"), $1 }'
+interval=repeat
+color=#00B4EB
+
+[ram]
+command=free -h | awk '/Mem:/ { printf("   %5s/%s \n", $3, $2) }'
+interval=1
+color=#FEC925
+
+[disk]
+command=df -h / | awk '/\//{ printf(" 💾 %4s/%s \n", $4, $2) }'
+interval=60
+color=#C9E3DB
+
+[eth]
+command=ip addr show enp0s1 | awk '/inet /{ printf(" 󰖩 %s\n", $2) }'
+interval=60
+color=#00B171
+
+[time]
+command=date +" %a, %d %b %H:%M"
+interval=5
+color=#C9E3DB
