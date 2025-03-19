@@ -25,9 +25,9 @@ if command -v brew &>/dev/null; then
 fi
 
 if [[ "`uname`" == "Darwin" ]]; then
-  export ANTHROPIC_API_KEY=`security find-generic-password -l anthropic_api_key -w`
-  export OPENAI_API_KEY=`security find-generic-password -l openai_api_key -w`
-  export OPENROUTER_API_KEY=`security find-generic-password -l openrouter_api_key -w`
+  export ANTHROPIC_API_KEY=`security find-generic-password -l anthropic_api_key -w 2>/dev/null`
+  export OPENAI_API_KEY=`security find-generic-password -l openai_api_key -w 2>/dev/null`
+  export OPENROUTER_API_KEY=`security find-generic-password -l openrouter_api_key -w 2>/dev/null`
 else
   export ANTHROPIC_API_KEY=`pass show anthropic_api_key 2>/dev/null`
   export OPENAI_API_KEY=`pass show openai_api_key 2>/dev/null`
