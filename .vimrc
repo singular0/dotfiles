@@ -48,11 +48,14 @@ set showmode            " Show the current mode
 set background=dark     " Use colors that suit a dark background
 set signcolumn=yes      " Always show indicators column
 set updatetime=300      " Update each 300 ms
-colorscheme minimalist  " Change color scheme
 
 set nocompatible        " Make Vim more useful
 set modeline            " Respect modeline in files
 set encoding=utf-8      " Set UTF-8 as default encoding
+
+if !empty(globpath(&rtp, "colors/minimalist.vim"))
+  colorscheme minimalist
+endif
 
 " Automatically set paste mode in Vim when pasting in insert mode
 " https://coderwall.com/p/if9mda/automatically-set-paste-mode-in-vim-when-pasting-in-insert-mode
