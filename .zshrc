@@ -28,11 +28,11 @@ zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 zstyle ':completion:*' menu select
 bindkey '^[[Z' reverse-menu-complete
 
-if [[ "$(uname)" == "Darwin" ]]; then
+if [[ "$OSTYPE" == "darwin"* ]]; then
   alias ls="ls --color"
 fi
 
-if command -v vim &>/dev/null; then
+if (( ${+commands[vim]} )); then
   export SUDO_EDITOR=vim
 fi
 
