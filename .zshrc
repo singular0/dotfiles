@@ -1,6 +1,10 @@
 # Plugins
 
-export ZINIT_HOME=/usr/local/opt/zinit
+if [[ "$OSTYPE" == "darwin"* ]]; then
+  export ZINIT_HOME=/usr/local/opt/zinit
+else
+  export ZINIT_HOME=/usr/share/zinit
+fi
 source $ZINIT_HOME/zinit.zsh
 
 zinit wait lucid light-mode for \
