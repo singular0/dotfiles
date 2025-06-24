@@ -1,25 +1,20 @@
 # Plugins
 
-export ZPLUG_HOME=/usr/local/opt/zplug
-source $ZPLUG_HOME/init.zsh
+export ZINIT_HOME=/usr/local/opt/zinit
+source $ZINIT_HOME/zinit.zsh
 
-zplug "willghatch/zsh-saneopt"
+zinit wait lucid light-mode for \
+  atinit"zicompinit; zicdreplay" zdharma-continuum/fast-syntax-highlighting \
+  atload"_zsh_autosuggest_start" zsh-users/zsh-autosuggestions \
+  atpull"zinit creinstall -q ." blockf zsh-users/zsh-completions \
+  OMZP::fzf \
+  singular0/zsh-env-secrets \
+  willghatch/zsh-saneopt \
+  wintermi/zsh-brew \
+  wintermi/zsh-mise
 
-zplug "zsh-users/zsh-completions"
-zplug "zsh-users/zsh-autosuggestions"
-zplug "zdharma-continuum/fast-syntax-highlighting"
-
-zplug "mafredri/zsh-async"
-zplug "sindresorhus/pure", use:pure.zsh, as:theme
-
-zplug "plugins/fzf", from:oh-my-zsh, if:"which fzf"
-zplug "wintermi/zsh-mise", if:"which mise"
-
-if ! zplug check; then
-  zplug install
-fi
-
-zplug load
+zinit ice pick"async.sh" src"pure.zsh"
+zinit light sindresorhus/pure
 
 # User preferences
 
@@ -29,14 +24,21 @@ export LANG=en_US.UTF-8
 export LSCOLORS=exfxcxdxbxegedabagacad
 export LS_COLORS="di=34:ln=35:so=32:pi=33:ex=31:bd=34;46:cd=34;43:su=30;41:sg=30;46:tw=30;42:ow=30;43"
 
-zstyle ':completion:*' menu select
 zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
+zstyle ':completion:*' menu select
+bindkey '^[[Z' reverse-menu-complete
 
 if [[ "$(uname)" == "Darwin" ]]; then
-  alias -g ls="ls --color"
+  alias ls="ls --color"
 fi
 
 if command -v vim &>/dev/null; then
   export SUDO_EDITOR=vim
 fi
 
+export ENV_SECRETS=(
+  "ANTHROPIC_API_KEY:anthropic_api_key"
+  "OPENAI_API_KEY:openai_api_key"
+  "OPENROUTER_API_KEY:openrouter_api_key"
+  "TAVILY_API_KEY:tavily_api_key"
+)
