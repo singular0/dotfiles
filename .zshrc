@@ -40,6 +40,7 @@ if (( ${+commands[vim]} )); then
   export SUDO_EDITOR=vim
 fi
 
+export ENV_SECRETS_QUIET=1
 export ENV_SECRETS=(
   "ANTHROPIC_API_KEY:anthropic_api_key"
   "OPENAI_API_KEY:openai_api_key"
