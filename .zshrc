@@ -12,10 +12,11 @@ zinit wait lucid light-mode for \
   atload"_zsh_autosuggest_start" zsh-users/zsh-autosuggestions \
   atpull"zinit creinstall -q ." blockf zsh-users/zsh-completions \
   OMZP::fzf \
-  singular0/zsh-env-secrets \
-  willghatch/zsh-saneopt \
+  OMZP::zoxide \
   wintermi/zsh-brew \
-  wintermi/zsh-mise
+  singular0/zsh-env-secrets \
+  wintermi/zsh-mise \
+  willghatch/zsh-saneopt
 
 zinit ice pick"async.sh" src"pure.zsh"
 zinit light sindresorhus/pure
