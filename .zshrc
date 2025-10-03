@@ -8,12 +8,12 @@ fi
 source $ZINIT_HOME/zinit.zsh
 
 zinit wait lucid light-mode for \
-  atinit"zicompinit; zicdreplay" zdharma-continuum/fast-syntax-highlighting \
-  atload"_zsh_autosuggest_start" zsh-users/zsh-autosuggestions \
-  atpull"zinit creinstall -q ." blockf zsh-users/zsh-completions \
+  zdharma-continuum/fast-syntax-highlighting \
+  zsh-users/zsh-autosuggestions \
+  zsh-users/zsh-completions \
   OMZP::fzf \
   OMZP::zoxide \
-  wintermi/zsh-brew \
+  singular0/zsh-brew \
   singular0/zsh-env-secrets \
   wintermi/zsh-mise \
   willghatch/zsh-saneopt
