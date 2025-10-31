@@ -8,13 +8,13 @@ fi
 source $ZINIT_HOME/zinit.zsh
 
 zinit wait lucid light-mode for \
-  zdharma-continuum/fast-syntax-highlighting \
-  zsh-users/zsh-autosuggestions \
-  zsh-users/zsh-completions \
+  atinit"ZINIT[COMPINIT_OPTS]=-C; zicompinit; zicdreplay" zdharma-continuum/fast-syntax-highlighting \
+  atload"!_zsh_autosuggest_start" zsh-users/zsh-autosuggestions \
+  blockf zsh-users/zsh-completions \
   OMZP::fzf \
   OMZP::zoxide \
-  singular0/zsh-brew \
   singular0/zsh-env-secrets \
+  wintermi/zsh-brew \
   wintermi/zsh-mise \
   willghatch/zsh-saneopt
 
