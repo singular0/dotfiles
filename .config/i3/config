@@ -6,8 +6,10 @@ floating_modifier $mod
 
 bindsym $mod+Return exec i3-sensible-terminal
 
-bindsym $mod+d exec --no-startup-id rofi -show run
+bindsym $mod+d exec --no-startup-id rofi -show drun
 
+bindsym $mod+Shift+r reload
+bindsym $mod+Shift+c restart
 bindsym $mod+Shift+q kill
 
 bindsym $mod+Left focus left
@@ -32,26 +34,23 @@ bindsym $mod+Shift+space floating toggle
 
 bindsym $mod+space focus mode_toggle
 
+# Workspaces
 bindsym $mod+Ctrl+Right workspace next
 bindsym $mod+Ctrl+Left workspace prev
 
-bindsym $mod+1 workspace 1:I
-bindsym $mod+2 workspace 2:II
-bindsym $mod+3 workspace 3:III
-bindsym $mod+4 workspace 4:IV
-bindsym $mod+5 workspace 5:V
-bindsym $mod+6 workspace 6:VI
+bindsym $mod+1 workspace 1
+bindsym $mod+2 workspace 2
+bindsym $mod+3 workspace 3
+bindsym $mod+4 workspace 4
+bindsym $mod+5 workspace 5
 
-bindsym $mod+Ctrl+1 move container to workspace 1:I
-bindsym $mod+Ctrl+2 move container to workspace 2:II
-bindsym $mod+Ctrl+3 move container to workspace 3:III
-bindsym $mod+Ctrl+4 move container to workspace 4:IV
-bindsym $mod+Ctrl+5 move container to workspace 5:V
-bindsym $mod+Ctrl+6 move container to workspace 6:VI
+bindsym $mod+Shift+1 move container to workspace 1
+bindsym $mod+Shift+2 move container to workspace 2
+bindsym $mod+Shift+3 move container to workspace 3
+bindsym $mod+Shift+4 move container to workspace 4
+bindsym $mod+Shift+5 move container to workspace 5
 
-bindsym $mod+Shift+r restart
-
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'Really exit?' -b 'Yes' 'i3-msg exit'"
+bindsym $mod+Shift+e exec "~/.config/rofi/powermenu.sh"
 
 bindsym $mod+r mode "resize"
 
@@ -64,7 +63,7 @@ mode "resize" {
 }
 
 bar {
-    status_command i3blocks
+    status_command "~/.config/conky/conky-i3bar.sh"
     position top
     workspace_min_width 24
     padding 2px 8px 2px 8px
