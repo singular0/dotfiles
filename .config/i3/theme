@@ -1,0 +1,40 @@
+font pango:DejaVuSansM NerdFont 11
+
+# target                 title     bg    text   indicator  border
+client.focused           $lavender $base $text  $rosewater $lavender
+client.focused_inactive  $overlay0 $base $text  $rosewater $overlay0
+client.unfocused         $overlay0 $base $text  $rosewater $overlay0
+client.urgent            $peach    $base $peach $overlay0  $peach
+client.placeholder       $overlay0 $base $text  $overlay0  $overlay0
+client.background        $base
+
+# bar
+bar {
+  status_command "~/.config/conky/conky-i3bar.sh"
+
+  position top
+
+  padding 2px 8px 2px 8px
+
+  workspace_min_width 24
+  strip_workspace_numbers yes
+
+  colors {
+    background         $base
+    statusline         $text
+    focused_statusline $text
+    focused_separator  $base
+
+    # target           border bg        text
+    focused_workspace  $base  $mauve    $crust
+    active_workspace   $base  $surface2 $text
+    inactive_workspace $base  $base     $text
+    urgent_workspace   $base  $red      $crust
+  }
+}
+
+for_window [class=".*"] border pixel 2
+hide_edge_borders smart
+
+gaps inner 8
+smart_gaps on
