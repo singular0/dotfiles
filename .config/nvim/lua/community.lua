@@ -19,7 +19,7 @@ return {
   { import = "astrocommunity.pack.typescript" },
   { import = "astrocommunity.pack.yaml" },
   { import = "astrocommunity.pack.zig" },
-  { import = "astrocommunity.completion.avante-nvim" },
+  { import = "astrocommunity.ai.avante-nvim" },
   { import = "astrocommunity.completion.copilot-lua-cmp" },
   -- import/override with your plugins folder
 }
