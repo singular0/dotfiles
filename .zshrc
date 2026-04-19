@@ -23,6 +23,10 @@ zinit light sindresorhus/pure
 
 # User preferences
 
+if [[ -z "$HISTFILE" ]]; then
+  export HISTFILE="$HOME/.zsh_history"
+fi
+
 export LANG=en_US.UTF-8
 
 # https://geoff.greer.fm/lscolors/
