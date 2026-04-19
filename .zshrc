@@ -23,9 +23,8 @@ zinit light sindresorhus/pure
 
 # User preferences
 
-if [[ -z "$HISTFILE" ]]; then
-  export HISTFILE="$HOME/.zsh_history"
-fi
+export HISTFILE="$HOME/.zsh_history"
+export SAVEHIST=5000
 
 export LANG=en_US.UTF-8
 
