@@ -24,7 +24,9 @@ zinit light sindresorhus/pure
 # User preferences
 
 export HISTFILE="$HOME/.zsh_history"
-export SAVEHIST=5000
+export HISTSIZE=50000
+export SAVEHIST=50000
+setopt SHARE_HISTORY HIST_IGNORE_DUPS HIST_IGNORE_SPACE HIST_EXPIRE_DUPS_FIRST HIST_FCNTL_LOCK
 
 export LANG=en_US.UTF-8
 
